@@ -1,12 +1,13 @@
 /* @flow */
+/* eslint-disable no-console */
 
-import AppContainer from './components/AppContainer.react';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import chalk from "chalk";
+import minimist from "minimist";
+import rootExecutor from "./executors";
 
-window.onload = function() {
-  ReactDOM.render(
-    <AppContainer />,
-    document.getElementById('root'),
-  );
-};
+rootExecutor(minimist(process.argv.slice(2)))
+  .then(() => process.exit(0))
+  .catch(error => {
+    console.error(chalk.red(error.toString()));
+    process.exit(1);
+  });

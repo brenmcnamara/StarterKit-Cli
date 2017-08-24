@@ -1,4 +1,4 @@
 {
   "plugins": ["babel-plugin-transform-object-rest-spread"],
-  "presets": ["latest", "react", "flow"]
+  "presets": ["latest", "flow"]
 }
